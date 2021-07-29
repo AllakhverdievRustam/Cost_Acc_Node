@@ -13,8 +13,10 @@ module.exports.addNewPurchase = (req, res) => {
   if (body.hasOwnProperty('text') 
   && body.hasOwnProperty('date') 
   && body.hasOwnProperty('cost')) {
-    purchase.save(req.body).then(result => {
-      res.send(result);
+    purchase.save(req.body).then(() => {
+      Purchase.find().then(result => {
+        res.send({data: result});
+      });
     });
   } else {
     res.status(422).send('Error!');
