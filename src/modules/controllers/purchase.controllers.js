@@ -36,7 +36,6 @@ module.exports.deletePurchase = (req, res) => {
 };
 
 module.exports.editPurchase = (req, res) => {
-  const purchase = new Purchase(req.body);
   const body = req.body;
 
   if (body.hasOwnProperty('_id') && body._id) {
